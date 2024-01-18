@@ -157,7 +157,7 @@
                 '<td><input type="text" name="tersedia[]" id="tersedia_' + i +
                 '" class="form-control" value="0" disabled></td>' +
                 '<td><input type="number" name="kuantiti[]" id="kuantiti_' + i +
-                '" class="form-control" onchange="getStatus(' + i + ')" onkeyup="getStatus(' + i + ')"></td>' +
+                '" class="form-control" min="1" onchange="getStatus(' + i + ')" onkeyup="getStatus(' + i + ')"></td>' +
                 '<td><input type="text" name="satuan[]" id="satuan_' + i +
                 '" class="form-control" disabled></td>' +
                 '<td><input type="text" name="keterangan[]" id="keterangan_' + i +
@@ -227,6 +227,10 @@
                             keterangan: keterangan[i].value
                         });
                     }
+                }
+
+                if (parseInt(kuantiti[i].value) <= 0 || kuantiti[i].value == '') {
+                    status = false;
                 }
             }
 
